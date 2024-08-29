@@ -4,7 +4,8 @@ USER root
 RUN sed -i 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/' /etc/apt/sources.list
 RUN sed -i 's/security.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/' /etc/apt/sources.list
 RUN apt update \
-  && apt install -y build-essential fish g++ clangd clang-format golang-go nodejs npm default-jdk vim neovim emacs meson ninja-build \
+  && apt install -y build-essential fish g++ clangd clang-format golang-go nodejs npm default-jdk vim neovim emacs meson ninja-build psmisc command-not-found \
+  && apt update \
   && apt clean
 
 USER openvscode-server

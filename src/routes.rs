@@ -136,7 +136,6 @@ fn generate_secret_token() -> String {
 }
 
 pub async fn start(login: LoginState) -> Result<HttpResponse> {
-    let image_name = "gitpod/openvscode-server";
     // Use user_id to create a unique container name
     Command::new("docker")
         .arg("run")
@@ -148,7 +147,7 @@ pub async fn start(login: LoginState) -> Result<HttpResponse> {
         .arg("")
         .arg("-p")
         .arg("3000")
-        .arg(image_name)
+        .arg(&ENV.image_name)
         .arg("sh")
         .arg("-c")
         .arg("exec ${OPENVSCODE_SERVER_ROOT}/bin/openvscode-server \"${@}\"")

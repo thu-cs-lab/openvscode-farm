@@ -6,6 +6,7 @@ pub struct Env {
     pub cookie_secret: String,
     pub public_url: String,
     pub container_url: String,
+    pub image_name: String,
 
     // oauth
     pub oauth_app_id: String,
@@ -19,6 +20,7 @@ fn get_env() -> Env {
         cookie_secret: var("COOKIE_SECRET").expect("COOKIE_SECRET"),
         public_url: var("PUBLIC_URL").expect("PUBLIC_URL"),
         container_url: var("CONTAINER_URL").expect("CONTAINER_URL"),
+        image_name: var("IMAGE_NAME").unwrap_or("gitpod/openvscode-server".to_string()),
 
         oauth_app_id: var("OAUTH_APP_ID").expect("OAUTH_APP_ID"),
         oauth_app_secret: var("OAUTH_APP_SECRET").expect("OAUTH_APP_SECRET"),
